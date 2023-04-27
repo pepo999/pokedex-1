@@ -48,14 +48,18 @@
 // }
 
 
-let actualPageIndex = -1;
+let actualPageIndex;
 
 let actualPage;
 
 loadNextPage()
 
 function loadNextPage(){
-    actualPageIndex++;
+    if (actualPage === undefined) {
+        actualPage = 0;
+    } else {
+        actualPageIndex++;
+    }
     if ( actualPageIndex >= PokeService.PAGE_COUNT){
         actualPageIndex= 0;
     }
@@ -75,6 +79,8 @@ function loadPreviousPage(){
         displayPokemon();
     })
 }
+
+
 
 function displayPokemon(){
     //searchParams o queryParams
