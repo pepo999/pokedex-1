@@ -39,4 +39,9 @@ class PokeService{
         return fetch(url).then(resp => resp.json());
     }
 
+    static getDetail(name){
+        const url = this.POKE_URL + '/' + name;
+        return fetch(url).then(resp => resp.json());
+    }
+
 }
