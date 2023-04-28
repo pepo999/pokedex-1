@@ -20,7 +20,17 @@ PokeService.getDetail(pokemonName).then(pokemonObject => {
 })
 
 function displayPokemon(pokemon){
-    console.log(pokemon);
+    document.getElementById('pokemon-name').innerHTML = pokemon.name;
+
+    const statsContainer = document.getElementById('pokemon-stats');
+    for (const stat of pokemon.stats) {
+        statsContainer.innerHTML += `<li><strong>${stat.name}</strong> ${stat.baseValue}</li>`
+    }
+
+    const typesContainer = document.getElementById('pokemon-types');
+    for (const type of pokemon.types) {
+        typesContainer.innerHTML += `<li><strong>${type.name}</strong> ${type.url}</li>`
+    }
 }
 
 
@@ -30,6 +40,11 @@ function createNewPokemon(pokemonObject){
     for (let i = 0; i < pokemonObject.stats.length; i++) {
         const statObject = pokemonObject.stats[i];
         myPokemon.addStat(statObject.stat.name, statObject.base_stat)
+    }
+
+    for (let i = 0; i < pokemonObject.types.length; i++) {
+        const typeObj = pokemonObject.types[i];
+        myPokemon.addType(typeObj.type.name, typeObj.type.url);
     }
 
     
