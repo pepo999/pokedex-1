@@ -3,21 +3,19 @@
 
 // loadNextPage();
 
-// function loadNextPage(){
-//     PokeService.getNextPokemon(actualPage).then(pokemonPage => {
-//         actualPage = pokemonPage;
-//         displayPokemon();
-//         console.log(actualPage);
-//     })
-// }
+function loadNextPage(){
+    PokeService.getNextPokemon(actualPage).then(pokemonPage => {
+        actualPage = pokemonPage;
+        displayPokemon();
+    })
+}
 
-// function loadPreviousPage(){
-//     PokeService.getPreviousPokemon(actualPage).then(pokemonPage => {
-//         actualPage = pokemonPage;
-//         displayPokemon();
-//         console.log(actualPage);
-//     })
-// }
+function loadPreviousPage(){
+    PokeService.getPreviousPokemon(actualPage).then(pokemonPage => {
+        actualPage = pokemonPage;
+        displayPokemon();
+    })
+}
 
 // function displayPokemon(){
 
@@ -54,31 +52,31 @@ let actualPage;
 
 loadNextPage()
 
-function loadNextPage(){
-    if (actualPage === undefined) {
-        actualPage = 0;
-    } else {
-        actualPageIndex++;
-    }
-    if ( actualPageIndex >= PokeService.PAGE_COUNT){
-        actualPageIndex= 0;
-    }
-    PokeService.getPageAtIndex(actualPageIndex).then(pokemonPage => {
-        actualPage = pokemonPage;
-        displayPokemon();
-    })
-}
+// function loadNextPage(){
+//     if (actualPage === undefined) {
+//         actualPage = 0;
+//     } else {
+//         actualPageIndex++;
+//     }
+//     if ( actualPageIndex >= PokeService.PAGE_COUNT){
+//         actualPageIndex= 0;
+//     }
+//     PokeService.getPageAtIndex(actualPageIndex).then(pokemonPage => {
+//         actualPage = pokemonPage;
+//         displayPokemon();
+//     })
+// }
 
-function loadPreviousPage(){
-    actualPageIndex--;
-    if (actualPageIndex < 0) {
-        actualPageIndex= PokeService.PAGE_COUNT - 1;
-    }
-    PokeService.getPageAtIndex(actualPageIndex).then(pokemonPage => {
-        actualPage = pokemonPage;
-        displayPokemon();
-    })
-}
+// function loadPreviousPage(){
+//     actualPageIndex--;
+//     if (actualPageIndex < 0) {
+//         actualPageIndex= PokeService.PAGE_COUNT - 1;
+//     }
+//     PokeService.getPageAtIndex(actualPageIndex).then(pokemonPage => {
+//         actualPage = pokemonPage;
+//         displayPokemon();
+//     })
+// }
 
 
 

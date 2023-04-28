@@ -34,14 +34,18 @@ class PokeService{
     //     return fetch(url).then(resp => resp.json());
     // }
 
-    static getPageAtIndex(index){
-        const url = this.POKE_URL + '?limit=' + this.PAGE_LIMIT + '&offset=' + (this.PAGE_LIMIT * index);
-        return fetch(url).then(resp => resp.json());
-    }
+    // static getPageAtIndex(index){
+    //     const url = this.POKE_URL + '?limit=' + this.PAGE_LIMIT + '&offset=' + (this.PAGE_LIMIT * index);
+    //     return fetch(url).then(resp => resp.json());
+    // }
 
     static getDetail(name){
         const url = this.POKE_URL + '/' + name;
         return fetch(url).then(resp => resp.json());
+    }
+
+    static getType(url){
+    return fetch(url).then(resp => resp.json());
     }
 
 }

@@ -33,7 +33,6 @@ function displayPokemon(pokemon){
     }
 }
 
-
 function createNewPokemon(pokemonObject){
     const myPokemon = new Pokemon(pokemonObject.name);
 
